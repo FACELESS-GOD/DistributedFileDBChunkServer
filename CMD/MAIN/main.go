@@ -12,6 +12,8 @@ func main() {
 
 	Utility.InitiateChunkNameList()
 
+	Utility.InitiateSocketConnection()
+
 	muxRouter := mux.NewRouter()
 
 	Route.CustomRouter(muxRouter)
