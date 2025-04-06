@@ -5,6 +5,12 @@ type GenericResponseMessage struct {
 }
 
 type GenericResponseData struct {
-	Data []byte
+	Data    []byte
 	Message string
+}
+
+type ChunkMapping struct {
+	ServerID       string
+	AvailableSpace int64
+	ChunkList      []string
 }

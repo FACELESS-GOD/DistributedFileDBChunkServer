@@ -14,6 +14,8 @@ func main() {
 
 	Utility.InitiateSocketConnection()
 
+	//go Utility.Listener()
+
 	muxRouter := mux.NewRouter()
 
 	Route.CustomRouter(muxRouter)
@@ -21,4 +23,7 @@ func main() {
 	http.Handle("/", muxRouter)
 
 	http.ListenAndServe("localhost:9030", muxRouter)
+
+	defer Utility.TerminateSocketConnection()
+
 }
