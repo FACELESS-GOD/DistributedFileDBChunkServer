@@ -10,6 +10,7 @@ func InitiateChunkNameList() {
 	err := filepath.Walk(MetaData.FileStoreLocation, func(path string, info os.FileInfo, err error) error {
 		if info != nil && info.IsDir() != true {
 			MetaData.ChunkNameList = append(MetaData.ChunkNameList, info.Name())
+			MetaData.UsedSize = MetaData.UsedSize + info.Size()
 		}
 		return nil
 	})
