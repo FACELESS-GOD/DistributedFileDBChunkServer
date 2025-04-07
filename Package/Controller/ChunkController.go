@@ -102,6 +102,7 @@ func AddData(writer http.ResponseWriter, Req *http.Request) {
 	}
 	defer file.Close()
 	fmt.Print(handler.Size)
+
 	//--
 
 	// Processing the File
@@ -128,9 +129,12 @@ func AddData(writer http.ResponseWriter, Req *http.Request) {
 
 	//--
 
-	go Utility.UpdateChunkNameList(ChunkID)
+	Utility.UpdateChunkNameList(ChunkID)
+
+	MetaData.UsedSize = MetaData.UsedSize +handler.Size
 
 	ValidOperationResponse(writer, Response, "SignUp was successfull")
+	Utility.Send()
 	return
 
 }

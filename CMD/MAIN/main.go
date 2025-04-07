@@ -12,7 +12,9 @@ func main() {
 
 	Utility.InitiateChunkNameList()
 
-	Utility.InitiateSocketConnection()
+	//Utility.InitiateSocketConnection()
+
+	go Utility.InitiateGRPCConnection()
 
 	//go Utility.Listener()
 
